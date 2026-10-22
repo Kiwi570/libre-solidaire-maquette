@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le Principe fertilité · Libre & Solidaire</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Fiche livre des Éditions Libre & Solidaire.">
+<meta name="theme-color" content="#16120e">
+<link rel="icon" href="assets/img/divers/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/fraunces-var.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans-var.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<script>try{if(localStorage.getItem('ls-calme')==='1'||(localStorage.getItem('ls-calme')===null&&matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.classList.add('calme')}catch(e){}</script>
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<div class="grain" aria-hidden="true"></div>
+<header class="entete">
+  <div class="conteneur entete__in">
+    <a class="marque" href="./" aria-label="Libre &amp; Solidaire, accueil">Libre <span class="marque__esperluette">&amp;</span> Solidaire</a>
+    <nav class="nav" aria-label="Navigation principale"><a href="catalogue.html">Catalogue</a><a href="./#nouveautes">Nouveautés</a><a href="./#territoires">Territoires</a><a href="./#auteurs">Auteurs</a><a href="./#manuscrits">Manuscrits</a></nav>
+    <div class="entete__actions">
+      <button class="bouton-icone calme-bouton" type="button" aria-pressed="false" title="Réduire les animations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 12c3-4 6-4 9 0s6 4 9 0"/></svg><span class="calme-libelle">Mode calme</span></button>
+      <button class="bouton-icone panier-bouton" type="button" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="panier-compte" aria-live="polite">0</span></button>
+      <button class="bouton-icone menu-bouton" type="button" aria-expanded="false" aria-controls="menu-plein" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="menu-plein" id="menu-plein" hidden>
+  <button class="bouton-icone menu-plein__fermer" type="button">Fermer</button>
+  <nav aria-label="Menu"><a href="catalogue.html"><span>01</span>Catalogue</a><a href="./#nouveautes"><span>02</span>Nouveautés</a><a href="./#territoires"><span>03</span>Territoires</a><a href="./#auteurs"><span>04</span>Auteurs</a><a href="./#manuscrits"><span>05</span>Manuscrits</a></nav>
+</div>
+<main id="contenu">
+  <section class="fiche bande" aria-labelledby="titre-livre">
+    <div class="fiche__fond photo--teinte" data-photo><img src="assets/img/photos/livre-fond-sol-fertile.webp" alt="" fetchpriority="high"></div>
+    <div class="conteneur">
+      <nav class="fil" aria-label="Fil d’Ariane" data-fil></nav>
+      <div class="fiche__grille">
+        <div class="fiche__scene" data-scene>
+          <p class="fiche__aide">Faites glisser pour tourner le livre</p>
+        </div>
+        <div class="fiche__infos">
+          <div data-label></div>
+          <h1 class="fiche__titre" id="titre-livre" data-titre>Le Principe fertilité</h1>
+          <p class="fiche__auteur" data-auteur></p>
+          <div data-avis style="margin-top:12px"></div>
+          <div class="fiche__achat">
+            <span class="fiche__prix" data-prix></span>
+            <span class="fiche__dispo" data-dispo></span>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;width:100%">
+              <div class="quantite" role="group" aria-label="Quantité"><button type="button" data-qte-pas="-1" aria-label="Un exemplaire de moins">−</button><output data-qte-out aria-live="polite">1</output><button type="button" data-qte-pas="1" aria-label="Un exemplaire de plus">+</button></div>
+              <button class="bouton magnetique" type="button" data-ajouter-fiche>Ajouter au panier <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+            <p class="fiche__loi">Prix TTC fixé par l’éditeur (prix unique du livre, loi du 10 août 1981). Livraison 5,00 €.</p>
+          </div>
+          <div class="fiche__bloc"><h2>Présentation</h2><div class="fiche__texte" data-resume></div></div>
+          <div class="fiche__bloc" data-bio></div>
+          <div class="fiche__bloc"><h2>Caractéristiques</h2><dl class="caracteristiques" data-carac></dl></div>
+          <div class="fiche__bloc">
+            <h2>Extrait</h2>
+            <div class="extrait" data-extrait aria-label="Aperçu de l’extrait, texte à fournir par l’éditeur"></div>
+            <div class="extrait__nav"><button class="bouton bouton--creux bouton--petit" type="button" data-tourner>Tourner la page</button><span>Extrait à fournir par la maison</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="meme-sol bande" aria-labelledby="titre-meme">
+    <div class="conteneur">
+      <div class="section__tete" style="margin-bottom:32px"><div><p class="surtitre">Continuer la lecture</p><h2 class="section__titre" id="titre-meme" data-meme-titre>Du même sol</h2></div></div>
+      <div class="meme-sol__piste" data-meme-sol></div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied bande" id="contact">
+  <div class="pied__fond photo--teinte"><img src="assets/img/photos/pied-racines.webp" alt="" loading="lazy" decoding="async"></div>
+  <canvas class="pied__racines" aria-hidden="true"></canvas>
+  <div class="conteneur">
+    <div class="pied__colonnes">
+      <div>
+        <p class="pied__titre">La maison</p>
+        <div class="pied__coord">
+          <span>Libre &amp; Solidaire / M.E.C.</span>
+          <span>37 rue Clisson, 75013 Paris</span>
+          <span><span class="selectionnable">01 48 74 15 23</span><button class="copier" type="button" data-copier="01 48 74 15 23">Copier</button></span>
+          <span><span class="selectionnable">libre.solidaire@gmail.com</span><button class="copier" type="button" data-copier="libre.solidaire@gmail.com">Copier</button></span>
+        </div>
+      </div>
+      <div>
+        <p class="pied__titre">Explorer</p>
+        <ul><li><a href="catalogue.html">Catalogue</a></li><li><a href="./#nouveautes">Nouveautés</a></li><li><a href="./#a-paraitre">À paraître</a></li><li><a href="./#auteurs">Auteurs</a></li><li><a href="./#manuscrits">Manuscrits</a></li></ul>
+      </div>
+      <div>
+        <p class="pied__titre">Suivre</p>
+        <ul><li><a href="https://www.facebook.com/libreetsolidaireparis/" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/editions_libresolidaire/" target="_blank" rel="noopener">Instagram</a></li><li><a href="http://libreetsolidaire.blogspot.com/" target="_blank" rel="noopener">Blog</a></li><li><a href="./#lettre">Lettre d'information</a></li></ul>
+      </div>
+      <div>
+        <p class="pied__titre">Informations</p>
+        <ul><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FTermsAndConditions" target="_blank" rel="noopener">Conditions générales de vente</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FCustomerInformation" target="_blank" rel="noopener">Droit de retrait</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FPrivacyPolicy" target="_blank" rel="noopener">Confidentialité</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FImprint" target="_blank" rel="noopener">Mentions légales</a></li></ul>
+      </div>
+    </div>
+    <p class="pied__marque" aria-hidden="true">Libre<em>&amp;</em>Solidaire</p>
+    <div class="pied__bas"><span>© Éditions Libre &amp; Solidaire</span><span>Maquette de démonstration · contenus à valider par l'éditeur</span><span>Prix TTC · livraison 5,00 €</span></div>
+  </div>
+</footer>
+<div class="tiroir-fond" aria-hidden="true"></div>
+<aside class="tiroir" aria-label="Panier" aria-hidden="true" inert>
+  <div class="tiroir__tete"><h2>Panier</h2><button class="bouton-icone tiroir__fermer" type="button">Fermer</button></div>
+  <ul class="tiroir__liste"></ul>
+  <div class="tiroir__totaux"></div>
+  <p class="tiroir__note">Prix TTC. Livraison à 5,00 € comme sur le site actuel. Panier de démonstration : aucune commande n'est passée.</p>
+  <div class="tiroir__commande"><button class="bouton" type="button" data-commander>Passer commande (simulation)</button></div>
+  <div class="paiement" role="status">Étape de paiement simulée. Moyens de paiement acceptés : <span class="a-completer">à compléter d'après les CGV</span></div>
+</aside>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/SplitText.min.js"></script>
+<script src="assets/vendor/CustomEase.min.js"></script>
+<script src="assets/vendor/lenis.js"></script>
+<script src="assets/data/livres.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/livre.js"></script>
+</body>
+</html>

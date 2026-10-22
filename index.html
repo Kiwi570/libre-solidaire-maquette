@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Libre & Solidaire</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Éditions Libre & Solidaire : des livres pour appréhender l'avenir de notre société. Environnement, société, agriculture, écologie, économie, vin.">
+<meta name="theme-color" content="#16120e">
+<link rel="icon" href="assets/img/divers/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/fraunces-var.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans-var.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<script>try{if(localStorage.getItem('ls-calme')==='1'||(localStorage.getItem('ls-calme')===null&&matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.classList.add('calme')}catch(e){}</script>
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<div class="grain" aria-hidden="true"></div>
+<header class="entete">
+  <div class="conteneur entete__in">
+    <a class="marque" href="./" aria-label="Libre &amp; Solidaire, accueil">Libre <span class="marque__esperluette">&amp;</span> Solidaire</a>
+    <nav class="nav" aria-label="Navigation principale"><a href="catalogue.html">Catalogue</a><a href="#nouveautes">Nouveautés</a><a href="#territoires">Territoires</a><a href="#auteurs">Auteurs</a><a href="#manuscrits">Manuscrits</a></nav>
+    <div class="entete__actions">
+      <button class="bouton-icone calme-bouton" type="button" aria-pressed="false" title="Réduire les animations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 12c3-4 6-4 9 0s6 4 9 0"/></svg><span class="calme-libelle">Mode calme</span></button>
+      <button class="bouton-icone panier-bouton" type="button" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="panier-compte" aria-live="polite">0</span></button>
+      <button class="bouton-icone menu-bouton" type="button" aria-expanded="false" aria-controls="menu-plein" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="menu-plein" id="menu-plein" hidden>
+  <button class="bouton-icone menu-plein__fermer" type="button">Fermer</button>
+  <nav aria-label="Menu"><a href="catalogue.html"><span>01</span>Catalogue</a><a href="#nouveautes"><span>02</span>Nouveautés</a><a href="#territoires"><span>03</span>Territoires</a><a href="#auteurs"><span>04</span>Auteurs</a><a href="#manuscrits"><span>05</span>Manuscrits</a></nav>
+</div>
+<div class="ouverture" aria-hidden="true">
+  <canvas></canvas>
+  <p class="ouverture__mot">Libre <em>&amp;</em> Solidaire</p>
+  <p class="ouverture__compteur">Éditions · Paris 13<sup>e</sup></p>
+  <button class="ouverture__passer" type="button">Passer</button>
+</div>
+<script>(function(){var o=document.querySelector('.ouverture');try{if(document.documentElement.classList.contains('calme')||sessionStorage.getItem('ls-ouverture-vue')==='1')o.remove()}catch(e){o.remove()}})();</script>
+
+<main id="contenu">
+  <section class="heros bande" id="haut" aria-labelledby="titre-heros">
+    <div class="heros__fond" data-photo>
+      <picture>
+        <source media="(max-width: 700px)" srcset="assets/img/photos/accueil-hero-sol-mobile.webp">
+        <img src="assets/img/photos/accueil-hero-sol.webp" alt="" fetchpriority="high">
+      </picture>
+      <canvas aria-hidden="true"></canvas>
+    </div>
+    <div class="conteneur heros__grille">
+      <div>
+        <p class="surtitre">Éditions indépendantes · Paris 13<sup>e</sup></p>
+        <h1 class="heros__titre" id="titre-heros">Des livres pour appréhender <em>l’avenir</em> de notre société.</h1>
+        <p class="heros__sous">Environnement, société, agriculture, écologie, économie, vin : des ouvrages qui interpellent sur les bouleversements de notre époque.</p>
+        <div class="heros__actions">
+          <a class="bouton magnetique" href="catalogue.html">Explorer le catalogue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="bouton bouton--creux magnetique" href="#nouveautes">Les nouveautés</a>
+        </div>
+      </div>
+      <div class="heros__livres" data-heros-livres>
+        <p class="heros__legende">Nouveautés · survolez, ouvrez</p>
+      </div>
+    </div>
+    <div class="heros__defiler" aria-hidden="true"></div>
+  </section>
+
+  <section class="section ligne bande" id="maison" aria-labelledby="titre-ligne">
+    <div class="ligne__fond photo--teinte" data-parallaxe="8"><img src="assets/img/photos/accueil-ligne-racines.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="conteneur">
+      <p class="surtitre" id="titre-ligne">La ligne éditoriale</p>
+      <p class="ligne__phrase" data-ligne style="margin-top:28px">Libre &amp; Solidaire publie des ouvrages qui interpellent sur les bouleversements de notre société, dans <span class="cle">l’environnement</span>, <span class="cle">l’écologie</span>, <span class="cle">l’économie</span>, <span class="cle">la politique</span> et <span class="cle">le social</span>.</p>
+      <p class="ligne__source">D’après la présentation de la maison sur son site actuel.</p>
+      <div class="chiffres">
+        <div class="chiffre"><p class="chiffre__valeur" data-compteur="0" data-nb="catalogue">0</p><p class="chiffre__libelle">titres en vente sur le site</p></div>
+        <div class="chiffre"><p class="chiffre__valeur" data-compteur="4">4</p><p class="chiffre__libelle">territoires thématiques</p></div>
+        <div class="chiffre"><p class="chiffre__valeur" data-compteur="0" data-nb="paraitre">0</p><p class="chiffre__libelle">titres annoncés à paraître</p></div>
+        <div class="chiffre"><p class="chiffre__valeur" data-compteur="3">3</p><p class="chiffre__libelle">mois au plus pour répondre à un manuscrit</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nouveautes bande" id="nouveautes" aria-labelledby="titre-nouv">
+    <div class="nouveautes__epingle">
+      <div class="nouveautes__fond photo--teinte" data-photo><img src="assets/img/photos/accueil-nouveautes-terre.webp" alt="" loading="lazy" decoding="async"></div>
+      <div class="conteneur">
+        <div class="section__tete" style="margin-bottom:0">
+          <div><p class="surtitre">Nouveautés</p><h2 class="section__titre" id="titre-nouv" data-titre-split>Ce qui vient de <em>germer</em></h2></div>
+          <div><p class="section__intro">Les derniers titres de la maison, à feuilleter du bout du curseur.</p><p class="compteur-piste" data-compteur-piste style="margin-top:14px">01</p></div>
+        </div>
+      </div>
+      <div class="piste" data-piste></div>
+      <div class="conteneur"><div class="barre-piste" aria-hidden="true"><span data-barre-piste></span></div></div>
+    </div>
+  </section>
+
+  <section class="section bande" id="a-paraitre" aria-labelledby="titre-parutions">
+    <div class="conteneur">
+      <div class="section__tete">
+        <div><p class="surtitre">À paraître</p><h2 class="section__titre" id="titre-parutions" data-titre-split>Ce qui pousse <em>sous la surface</em></h2></div>
+        <p class="section__intro">Les prochaines parutions, dans l’ordre de leur sortie. Les dates viennent du site actuel.</p>
+      </div>
+      <div class="parutions">
+        <div class="parutions__visuel">
+          <div class="photo photo--teinte" data-photo><img src="assets/img/photos/accueil-a-paraitre-pousses.webp" alt="Jeunes pousses sortant de terre" loading="lazy" decoding="async"></div>
+          <div class="decompte" data-decompte></div>
+        </div>
+        <div><ol class="frise" data-frise><span class="frise__trait" aria-hidden="true"></span></ol></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bande" id="territoires" aria-labelledby="titre-terr">
+    <div class="conteneur">
+      <div class="section__tete">
+        <div><p class="surtitre">Quatre territoires</p><h2 class="section__titre" id="titre-terr" data-titre-split>Un catalogue en <em>strates</em></h2></div>
+        <p class="section__intro">Société, environnement, vigne, autonomie : les quatre sols où poussent les livres de la maison. Descendez pour les traverser.</p>
+      </div>
+      <div class="territoires__scene">
+        <div class="carotte" aria-hidden="true"><div class="carotte__tube" data-carotte></div></div>
+        <div data-strates></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reseau bande" id="reseau" aria-labelledby="titre-reseau">
+    <div class="conteneur">
+      <div class="section__tete">
+        <div><p class="surtitre">Le réseau</p><h2 class="section__titre" id="titre-reseau" data-titre-split>Tout le catalogue, relié <em>comme un sol vivant</em></h2></div>
+        <p class="section__intro">Chaque couverture est un livre, chaque filament le relie au cœur de son territoire. Survolez pour lire le titre, cliquez pour ouvrir la fiche.</p>
+      </div>
+    </div>
+    <div class="reseau__cadre" data-reseau>
+      <canvas role="img" aria-label="Carte des livres du catalogue, regroupés par territoire"></canvas>
+      <div class="reseau__infobulle" aria-hidden="true"></div>
+      <div class="reseau__legende"></div>
+      <p class="reseau__aide">Survoler · cliquer pour ouvrir</p>
+    </div>
+    <div class="conteneur" style="margin-top:28px"><a class="bouton bouton--creux" href="catalogue.html">Voir le catalogue en liste <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </section>
+
+  <section class="vin bande" id="vin" aria-labelledby="titre-vin">
+    <div class="vin__scene" data-vin>
+      <div class="vin__photo photo--teinte" data-photo><img src="assets/img/photos/accueil-vigne-aube.webp" alt="Rangs de vigne à l’aube" loading="lazy" decoding="async"></div>
+      <div class="vin__teinte" aria-hidden="true"></div>
+      <div class="vin__voile" aria-hidden="true"></div>
+      <svg class="vin__vrilles" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M1440 120 C 1300 160, 1240 60, 1120 110 S 960 260, 1010 330 S 1180 300, 1130 230"/>
+        <path d="M1440 520 C 1320 470, 1250 600, 1160 560 S 1040 420, 980 500 S 1020 640, 1090 600"/>
+        <path d="M1380 900 C 1350 780, 1250 820, 1220 740 S 1290 640, 1240 610"/>
+      </svg>
+      <div class="conteneur vin__grille">
+        <div>
+          <p class="surtitre">Vigne et vin</p>
+          <h2 class="section__titre" id="titre-vin" data-titre-split>De la vigne <em>au livre</em></h2>
+          <p class="section__intro" style="margin-top:20px"><span data-vin-nb>11</span> livres sur la vigne : biodynamie, vin naturel, histoire, climat et cépages.</p>
+          <div class="vin__vedette" data-vin-vedette></div>
+        </div>
+        <div class="vin__etagere" data-vin-etagere></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section auteurs bande" id="auteurs" aria-labelledby="titre-auteurs">
+    <div class="auteurs__fond photo--teinte" data-parallaxe="6" data-photo><img src="assets/img/photos/accueil-auteurs-table.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="conteneur">
+      <div class="section__tete">
+        <div><p class="surtitre">Auteurs</p><h2 class="section__titre" id="titre-auteurs" data-titre-split>Celles et ceux <em>qui écrivent</em></h2></div>
+        <p class="section__intro"><span data-nb-auteurs>Les</span> auteurs nommés sur les fiches du catalogue. Survolez un nom pour voir son livre.</p>
+      </div>
+      <ul class="auteurs__liste" data-auteurs></ul>
+      <p class="auteurs__note">Portraits et biographies complètes à fournir par la maison.</p>
+    </div>
+    <div class="auteurs__flottant" aria-hidden="true"><img alt=""></div>
+  </section>
+
+  <section class="section bande" id="manuscrits" aria-labelledby="titre-manus">
+    <div class="conteneur manuscrits__grille">
+      <div>
+        <p class="surtitre">Manuscrits</p>
+        <h2 class="section__titre" id="titre-manus" data-titre-split>Vous écrivez sur <em>notre époque</em> ?</h2>
+        <p class="section__intro" style="margin-top:20px">La maison lit les textes qui s’inscrivent dans sa ligne éditoriale.</p>
+        <ul class="conditions">
+          <li><span>01</span><div><strong>Envoyez le manuscrit ou un synopsis</strong>, par courriel ou par la poste.</div></li>
+          <li><span>02</span><div><strong>Réponse sous trois mois</strong> après réception, par courriel ou par courrier.</div></li>
+          <li><span>03</span><div><strong>Texte non retenu</strong> : conservé deux mois après la réponse, récupérable contre les timbres du retour, puis détruit.</div></li>
+        </ul>
+        <div class="adresse"><span>Libre &amp; Solidaire</span><span>37 rue Clisson</span><span>75013 Paris</span><span>libre.solidaire@gmail.com</span></div>
+        <form class="formulaire" data-form-manuscrit novalidate>
+          <div class="formulaire__ligne">
+            <div class="champ"><label for="m-nom">Nom et prénom</label><input id="m-nom" name="nom" autocomplete="name" required></div>
+            <div class="champ"><label for="m-courriel">Adresse e-mail</label><input id="m-courriel" name="courriel" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="formulaire__ligne">
+            <div class="champ"><label for="m-titre">Titre du texte</label><input id="m-titre" name="titre" required></div>
+            <div class="champ"><label for="m-terr">Territoire</label><select id="m-terr" name="territoire"><option>Société</option><option>Environnement et écologie</option><option>Vin et viticulture</option><option>Autonomia</option><option>Autre</option></select></div>
+          </div>
+          <div class="champ"><label for="m-synopsis">Synopsis</label><textarea id="m-synopsis" name="synopsis" placeholder="En quelques lignes : le propos, le public, l’état d’avancement."></textarea></div>
+          <div class="champ"><label for="m-fichier">Manuscrit (PDF ou Word)</label><input id="m-fichier" name="fichier" type="file" accept=".pdf,.doc,.docx,.odt"></div>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center"><button class="bouton magnetique" type="submit">Envoyer (simulation)</button><p class="formulaire__note">Formulaire de démonstration : rien n’est transmis.</p></div>
+          <p class="retour-simule" role="status"></p>
+        </form>
+      </div>
+      <div class="enveloppe-scene">
+        <div class="photo photo--teinte" data-photo><img src="assets/img/photos/accueil-manuscrits.webp" alt="Pile de feuillets et enveloppes kraft" loading="lazy" decoding="async"></div>
+        <div class="enveloppe" data-enveloppe aria-hidden="true">
+          <div class="enveloppe__dos"></div>
+          <div class="enveloppe__feuille"><i style="width:55%"></i><i></i><i></i><i style="width:80%"></i><i></i><i style="width:70%"></i></div>
+          <div class="enveloppe__devant"><p>Libre &amp; Solidaire<br>37 rue Clisson<br>75013 Paris</p></div>
+          <div class="enveloppe__rabat"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lettre bande" id="lettre" aria-labelledby="titre-lettre">
+    <div class="conteneur">
+      <div class="lettre__cadre">
+        <div class="lettre__visuel photo photo--teinte" data-photo><img src="assets/img/photos/accueil-lettre-graines.webp" alt="Graines échappées d’une enveloppe kraft" loading="lazy" decoding="async"><span class="lettre__graine" aria-hidden="true"></span></div>
+        <div>
+          <p class="surtitre">Lettre d’information</p>
+          <h2 class="section__titre" id="titre-lettre" data-titre-split>Recevoir les <em>nouvelles pousses</em></h2>
+          <p class="section__intro" style="margin-top:16px">Les parutions et l’actualité de la maison, par courriel.</p>
+          <form class="lettre__form" data-form-lettre novalidate>
+            <div class="champ"><label for="l-prenom">Prénom</label><input id="l-prenom" name="prenom" autocomplete="given-name" required></div>
+            <div class="champ"><label for="l-nom">Nom</label><input id="l-nom" name="nom" autocomplete="family-name" required></div>
+            <div class="champ champ--large"><label for="l-courriel">Adresse e-mail</label><input id="l-courriel" name="courriel" type="email" autocomplete="email" required></div>
+            <button class="bouton magnetique" type="submit">S’inscrire (simulation)</button>
+            <p class="formulaire__note champ--large">Mention RGPD à rédiger par la maison : usage des données, durée de conservation, désinscription.</p>
+            <p class="retour-simule champ--large" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied bande" id="contact">
+  <div class="pied__fond photo--teinte"><img src="assets/img/photos/pied-racines.webp" alt="" loading="lazy" decoding="async"></div>
+  <canvas class="pied__racines" aria-hidden="true"></canvas>
+  <div class="conteneur">
+    <div class="pied__colonnes">
+      <div>
+        <p class="pied__titre">La maison</p>
+        <div class="pied__coord">
+          <span>Libre &amp; Solidaire / M.E.C.</span>
+          <span>37 rue Clisson, 75013 Paris</span>
+          <span><span class="selectionnable">01 48 74 15 23</span><button class="copier" type="button" data-copier="01 48 74 15 23">Copier</button></span>
+          <span><span class="selectionnable">libre.solidaire@gmail.com</span><button class="copier" type="button" data-copier="libre.solidaire@gmail.com">Copier</button></span>
+        </div>
+      </div>
+      <div>
+        <p class="pied__titre">Explorer</p>
+        <ul><li><a href="catalogue.html">Catalogue</a></li><li><a href="#nouveautes">Nouveautés</a></li><li><a href="#a-paraitre">À paraître</a></li><li><a href="#auteurs">Auteurs</a></li><li><a href="#manuscrits">Manuscrits</a></li></ul>
+      </div>
+      <div>
+        <p class="pied__titre">Suivre</p>
+        <ul><li><a href="https://www.facebook.com/libreetsolidaireparis/" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/editions_libresolidaire/" target="_blank" rel="noopener">Instagram</a></li><li><a href="http://libreetsolidaire.blogspot.com/" target="_blank" rel="noopener">Blog</a></li><li><a href="#lettre">Lettre d'information</a></li></ul>
+      </div>
+      <div>
+        <p class="pied__titre">Informations</p>
+        <ul><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FTermsAndConditions" target="_blank" rel="noopener">Conditions générales de vente</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FCustomerInformation" target="_blank" rel="noopener">Droit de retrait</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FPrivacyPolicy" target="_blank" rel="noopener">Confidentialité</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FImprint" target="_blank" rel="noopener">Mentions légales</a></li></ul>
+      </div>
+    </div>
+    <p class="pied__marque" aria-hidden="true">Libre<em>&amp;</em>Solidaire</p>
+    <div class="pied__bas"><span>© Éditions Libre &amp; Solidaire</span><span>Maquette de démonstration · contenus à valider par l'éditeur</span><span>Prix TTC · livraison 5,00 €</span></div>
+  </div>
+</footer>
+<div class="tiroir-fond" aria-hidden="true"></div>
+<aside class="tiroir" aria-label="Panier" aria-hidden="true" inert>
+  <div class="tiroir__tete"><h2>Panier</h2><button class="bouton-icone tiroir__fermer" type="button">Fermer</button></div>
+  <ul class="tiroir__liste"></ul>
+  <div class="tiroir__totaux"></div>
+  <p class="tiroir__note">Prix TTC. Livraison à 5,00 € comme sur le site actuel. Panier de démonstration : aucune commande n'est passée.</p>
+  <div class="tiroir__commande"><button class="bouton" type="button" data-commander>Passer commande (simulation)</button></div>
+  <div class="paiement" role="status">Étape de paiement simulée. Moyens de paiement acceptés : <span class="a-completer">à compléter d'après les CGV</span></div>
+</aside>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/SplitText.min.js"></script>
+<script src="assets/vendor/CustomEase.min.js"></script>
+<script src="assets/vendor/lenis.js"></script>
+<script src="assets/data/livres.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/reseau.js"></script>
+<script src="assets/js/accueil.js"></script>
+<script type="module" src="assets/js/heros-gl.js"></script>
+</body>
+</html>
