@@ -7,6 +7,12 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Fiche livre des Éditions Libre & Solidaire.">
 <meta name="theme-color" content="#16120e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Éditions Libre &amp; Solidaire">
+<meta property="og:title" content="Le Principe fertilité · Libre & Solidaire">
+<meta property="og:description" content="Fiche livre des Éditions Libre & Solidaire.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/divers/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/fraunces-var.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/instrument-sans-var.woff" as="font" type="font/woff" crossorigin>
@@ -21,15 +27,29 @@
     <a class="marque" href="./" aria-label="Libre &amp; Solidaire, accueil">Libre <span class="marque__esperluette">&amp;</span> Solidaire</a>
     <nav class="nav" aria-label="Navigation principale"><a href="catalogue.html">Catalogue</a><a href="./#nouveautes">Nouveautés</a><a href="./#territoires">Territoires</a><a href="./#auteurs">Auteurs</a><a href="./#manuscrits">Manuscrits</a></nav>
     <div class="entete__actions">
+      <button class="bouton-icone recherche-bouton" type="button" aria-haspopup="dialog" aria-controls="recherche-rapide" title="Rechercher (touche /)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><span class="recherche-libelle">Rechercher</span><kbd class="raccourci" aria-hidden="true">/</kbd></button>
       <button class="bouton-icone calme-bouton" type="button" aria-pressed="false" title="Réduire les animations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 12c3-4 6-4 9 0s6 4 9 0"/></svg><span class="calme-libelle">Mode calme</span></button>
-      <button class="bouton-icone panier-bouton" type="button" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="panier-compte" aria-live="polite">0</span></button>
+      <button class="bouton-icone panier-bouton" type="button" aria-label="Panier, 0 article" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="panier-compte" aria-live="polite">0</span></button>
       <button class="bouton-icone menu-bouton" type="button" aria-expanded="false" aria-controls="menu-plein" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
     </div>
   </div>
 </header>
-<div class="menu-plein" id="menu-plein" hidden>
+<div class="menu-plein" id="menu-plein" role="dialog" aria-modal="true" aria-label="Menu" hidden>
   <button class="bouton-icone menu-plein__fermer" type="button">Fermer</button>
   <nav aria-label="Menu"><a href="catalogue.html"><span>01</span>Catalogue</a><a href="./#nouveautes"><span>02</span>Nouveautés</a><a href="./#territoires"><span>03</span>Territoires</a><a href="./#auteurs"><span>04</span>Auteurs</a><a href="./#manuscrits"><span>05</span>Manuscrits</a></nav>
+</div>
+<div class="recherche-rapide" id="recherche-rapide" role="dialog" aria-modal="true" aria-label="Recherche dans le catalogue" hidden>
+  <div class="recherche-rapide__fond" data-fermer-recherche></div>
+  <div class="recherche-rapide__boite">
+    <div class="recherche-rapide__champ">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+      <label class="vh" for="rr-champ">Titre, auteur ou sujet</label>
+      <input id="rr-champ" type="search" placeholder="Titre, auteur, sujet…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="rr-resultats" aria-autocomplete="list">
+      <button class="bouton-icone" type="button" data-fermer-recherche>Fermer</button>
+    </div>
+    <ul class="recherche-rapide__resultats" id="rr-resultats" role="listbox" aria-label="Résultats"></ul>
+    <p class="recherche-rapide__pied"><span><kbd>↑</kbd><kbd>↓</kbd> naviguer</span><span><kbd>Entrée</kbd> ouvrir</span><span><kbd>Échap</kbd> fermer</span></p>
+  </div>
 </div>
 <main id="contenu">
   <section class="fiche bande" aria-labelledby="titre-livre">
@@ -54,6 +74,7 @@
             </div>
             <p class="fiche__loi">Prix TTC fixé par l’éditeur (prix unique du livre, loi du 10 août 1981). Livraison 5,00 €.</p>
           </div>
+          <button class="bouton bouton--creux bouton--petit fiche__partage" type="button" data-partage>Copier le lien de la fiche</button>
           <div class="fiche__bloc"><h2>Présentation</h2><div class="fiche__texte" data-resume></div></div>
           <div class="fiche__bloc" data-bio></div>
           <div class="fiche__bloc"><h2>Caractéristiques</h2><dl class="caracteristiques" data-carac></dl></div>
@@ -98,15 +119,15 @@
       </div>
       <div>
         <p class="pied__titre">Informations</p>
-        <ul><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FTermsAndConditions" target="_blank" rel="noopener">Conditions générales de vente</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FCustomerInformation" target="_blank" rel="noopener">Droit de retrait</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FPrivacyPolicy" target="_blank" rel="noopener">Confidentialité</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FImprint" target="_blank" rel="noopener">Mentions légales</a></li></ul>
+        <ul><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FTermsAndConditions" target="_blank" rel="noopener">Conditions générales de vente<span class="vh"> (site actuel, nouvel onglet)</span></a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FCustomerInformation" target="_blank" rel="noopener">Droit de retrait</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FPrivacyPolicy" target="_blank" rel="noopener">Confidentialité</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FImprint" target="_blank" rel="noopener">Mentions légales</a></li></ul>
       </div>
     </div>
     <p class="pied__marque" aria-hidden="true">Libre<em>&amp;</em>Solidaire</p>
-    <div class="pied__bas"><span>© Éditions Libre &amp; Solidaire</span><span>Maquette de démonstration · contenus à valider par l'éditeur</span><span>Prix TTC · livraison 5,00 €</span></div>
+    <div class="pied__bas"><button class="haut-de-page" type="button" data-haut>Revenir en haut ↑</button><span>© Éditions Libre &amp; Solidaire</span><span>Maquette de démonstration · contenus à valider par l'éditeur</span><span>Prix TTC · livraison 5,00 €</span></div>
   </div>
 </footer>
 <div class="tiroir-fond" aria-hidden="true"></div>
-<aside class="tiroir" aria-label="Panier" aria-hidden="true" inert>
+<aside class="tiroir" role="dialog" aria-modal="true" aria-label="Panier" aria-hidden="true" inert>
   <div class="tiroir__tete"><h2>Panier</h2><button class="bouton-icone tiroir__fermer" type="button">Fermer</button></div>
   <ul class="tiroir__liste"></ul>
   <div class="tiroir__totaux"></div>

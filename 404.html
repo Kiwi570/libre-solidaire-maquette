@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page introuvable · Libre & Solidaire</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Cette page n'existe pas. Retrouvez les livres des Éditions Libre & Solidaire dans le catalogue.">
+<meta name="theme-color" content="#16120e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Éditions Libre &amp; Solidaire">
+<meta property="og:title" content="Page introuvable · Libre & Solidaire">
+<meta property="og:description" content="Cette page n'existe pas. Retrouvez les livres des Éditions Libre & Solidaire dans le catalogue.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/divers/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/fraunces-var.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans-var.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<script>try{if(localStorage.getItem('ls-calme')==='1'||(localStorage.getItem('ls-calme')===null&&matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.classList.add('calme')}catch(e){}</script>
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<div class="grain" aria-hidden="true"></div>
+<header class="entete">
+  <div class="conteneur entete__in">
+    <a class="marque" href="./" aria-label="Libre &amp; Solidaire, accueil">Libre <span class="marque__esperluette">&amp;</span> Solidaire</a>
+    <nav class="nav" aria-label="Navigation principale"><a href="catalogue.html">Catalogue</a><a href="./#nouveautes">Nouveautés</a><a href="./#territoires">Territoires</a><a href="./#auteurs">Auteurs</a><a href="./#manuscrits">Manuscrits</a></nav>
+    <div class="entete__actions">
+      <button class="bouton-icone recherche-bouton" type="button" aria-haspopup="dialog" aria-controls="recherche-rapide" title="Rechercher (touche /)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><span class="recherche-libelle">Rechercher</span><kbd class="raccourci" aria-hidden="true">/</kbd></button>
+      <button class="bouton-icone calme-bouton" type="button" aria-pressed="false" title="Réduire les animations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 12c3-4 6-4 9 0s6 4 9 0"/></svg><span class="calme-libelle">Mode calme</span></button>
+      <button class="bouton-icone panier-bouton" type="button" aria-label="Panier, 0 article" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="panier-compte" aria-live="polite">0</span></button>
+      <button class="bouton-icone menu-bouton" type="button" aria-expanded="false" aria-controls="menu-plein" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="menu-plein" id="menu-plein" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <button class="bouton-icone menu-plein__fermer" type="button">Fermer</button>
+  <nav aria-label="Menu"><a href="catalogue.html"><span>01</span>Catalogue</a><a href="./#nouveautes"><span>02</span>Nouveautés</a><a href="./#territoires"><span>03</span>Territoires</a><a href="./#auteurs"><span>04</span>Auteurs</a><a href="./#manuscrits"><span>05</span>Manuscrits</a></nav>
+</div>
+<div class="recherche-rapide" id="recherche-rapide" role="dialog" aria-modal="true" aria-label="Recherche dans le catalogue" hidden>
+  <div class="recherche-rapide__fond" data-fermer-recherche></div>
+  <div class="recherche-rapide__boite">
+    <div class="recherche-rapide__champ">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+      <label class="vh" for="rr-champ">Titre, auteur ou sujet</label>
+      <input id="rr-champ" type="search" placeholder="Titre, auteur, sujet…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="rr-resultats" aria-autocomplete="list">
+      <button class="bouton-icone" type="button" data-fermer-recherche>Fermer</button>
+    </div>
+    <ul class="recherche-rapide__resultats" id="rr-resultats" role="listbox" aria-label="Résultats"></ul>
+    <p class="recherche-rapide__pied"><span><kbd>↑</kbd><kbd>↓</kbd> naviguer</span><span><kbd>Entrée</kbd> ouvrir</span><span><kbd>Échap</kbd> fermer</span></p>
+  </div>
+</div>
+<main id="contenu">
+  <section class="cat-heros bande" aria-labelledby="titre-404" style="min-height:78svh;display:flex;align-items:center">
+    <div class="cat-heros__fond photo--teinte"><img src="assets/img/photos/accueil-a-paraitre-pousses.webp" alt=""></div>
+    <div class="conteneur">
+      <p class="surtitre">Erreur 404</p>
+      <h1 class="cat-heros__titre" id="titre-404" style="font-size:var(--t-3xl)">Cette page n’a pas encore <em style="color:var(--ocre-clair)">poussé</em>.</h1>
+      <p class="cat-heros__sous">L’adresse ne correspond à aucune page. Le livre que vous cherchez est peut-être au catalogue.</p>
+      <div class="heros__actions">
+        <a class="bouton magnetique" href="catalogue.html">Parcourir le catalogue</a>
+        <button class="bouton bouton--creux" type="button" onclick="document.querySelector('.recherche-bouton').click()">Rechercher un titre</button>
+        <a class="bouton bouton--creux" href="./">Revenir à l’accueil</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied bande" id="contact">
+  <div class="pied__fond photo--teinte"><img src="assets/img/photos/pied-racines.webp" alt="" loading="lazy" decoding="async"></div>
+  <canvas class="pied__racines" aria-hidden="true"></canvas>
+  <div class="conteneur">
+    <div class="pied__colonnes">
+      <div>
+        <p class="pied__titre">La maison</p>
+        <div class="pied__coord">
+          <span>Libre &amp; Solidaire / M.E.C.</span>
+          <span>37 rue Clisson, 75013 Paris</span>
+          <span><span class="selectionnable">01 48 74 15 23</span><button class="copier" type="button" data-copier="01 48 74 15 23">Copier</button></span>
+          <span><span class="selectionnable">libre.solidaire@gmail.com</span><button class="copier" type="button" data-copier="libre.solidaire@gmail.com">Copier</button></span>
+        </div>
+      </div>
+      <div>
+        <p class="pied__titre">Explorer</p>
+        <ul><li><a href="catalogue.html">Catalogue</a></li><li><a href="./#nouveautes">Nouveautés</a></li><li><a href="./#a-paraitre">À paraître</a></li><li><a href="./#auteurs">Auteurs</a></li><li><a href="./#manuscrits">Manuscrits</a></li></ul>
+      </div>
+      <div>
+        <p class="pied__titre">Suivre</p>
+        <ul><li><a href="https://www.facebook.com/libreetsolidaireparis/" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/editions_libresolidaire/" target="_blank" rel="noopener">Instagram</a></li><li><a href="http://libreetsolidaire.blogspot.com/" target="_blank" rel="noopener">Blog</a></li><li><a href="./#lettre">Lettre d'information</a></li></ul>
+      </div>
+      <div>
+        <p class="pied__titre">Informations</p>
+        <ul><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FTermsAndConditions" target="_blank" rel="noopener">Conditions générales de vente<span class="vh"> (site actuel, nouvel onglet)</span></a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FCustomerInformation" target="_blank" rel="noopener">Droit de retrait</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FPrivacyPolicy" target="_blank" rel="noopener">Confidentialité</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FImprint" target="_blank" rel="noopener">Mentions légales</a></li></ul>
+      </div>
+    </div>
+    <p class="pied__marque" aria-hidden="true">Libre<em>&amp;</em>Solidaire</p>
+    <div class="pied__bas"><button class="haut-de-page" type="button" data-haut>Revenir en haut ↑</button><span>© Éditions Libre &amp; Solidaire</span><span>Maquette de démonstration · contenus à valider par l'éditeur</span><span>Prix TTC · livraison 5,00 €</span></div>
+  </div>
+</footer>
+<div class="tiroir-fond" aria-hidden="true"></div>
+<aside class="tiroir" role="dialog" aria-modal="true" aria-label="Panier" aria-hidden="true" inert>
+  <div class="tiroir__tete"><h2>Panier</h2><button class="bouton-icone tiroir__fermer" type="button">Fermer</button></div>
+  <ul class="tiroir__liste"></ul>
+  <div class="tiroir__totaux"></div>
+  <p class="tiroir__note">Prix TTC. Livraison à 5,00 € comme sur le site actuel. Panier de démonstration : aucune commande n'est passée.</p>
+  <div class="tiroir__commande"><button class="bouton" type="button" data-commander>Passer commande (simulation)</button></div>
+  <div class="paiement" role="status">Étape de paiement simulée. Moyens de paiement acceptés : <span class="a-completer">à compléter d'après les CGV</span></div>
+</aside>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/SplitText.min.js"></script>
+<script src="assets/vendor/CustomEase.min.js"></script>
+<script src="assets/vendor/lenis.js"></script>
+<script src="assets/data/livres.js"></script>
+<script src="assets/js/core.js"></script>
+</body>
+</html>

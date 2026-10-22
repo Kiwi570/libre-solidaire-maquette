@@ -44,10 +44,16 @@
 
     /* Informations */
     $('[data-label]').innerHTML = L.badgeLabel(l);
-    $('[data-titre]').textContent = l.titre;
+    var titreEl = $('[data-titre]');
+    titreEl.textContent = l.titre;
+    if (l.titre.length > 70) titreEl.setAttribute('data-long', '2'); else if (l.titre.length > 32) titreEl.setAttribute('data-long', '1');
     $('[data-auteur]').innerHTML = L.auteurs(l) ? L.esc(L.auteurs(l)) : 'Auteur ' + AC;
     var dispo = $('[data-dispo]');
-    if (l.aParaitre) { dispo.classList.add('est-paraitre'); dispo.innerHTML = '<i></i>' + (l.dateDispo ? 'À paraître le ' + L.dateTexte(l.dateDispo) : 'À paraître, date à préciser'); }
+    var aujourd = L.aujourdHui();
+    if (l.aParaitre && l.dateDispo && L.dateLocale(l.dateDispo) < aujourd) { dispo.innerHTML = '<i></i>Paru le ' + L.dateTexte(l.dateDispo) + ' · disponibilité à confirmer'; }
+    else if (l.aParaitre && l.dateDispo && +L.dateLocale(l.dateDispo) === +aujourd) { dispo.innerHTML = '<i></i>Paraît aujourd’hui'; }
+    else if (l.aParaitre && l.nouveau) { dispo.classList.add('est-paraitre'); dispo.innerHTML = '<i></i>Nouveauté · disponibilité à confirmer'; }
+    else if (l.aParaitre) { dispo.classList.add('est-paraitre'); dispo.innerHTML = '<i></i>' + (l.dateDispo ? 'À paraître le ' + L.dateTexte(l.dateDispo) : 'À paraître, date à préciser'); }
     else dispo.innerHTML = '<i></i>' + (l.stock || 'Disponibilité ' + AC) + (l.expedition ? ' · ' + L.esc(l.expedition) : '');
     $('[data-prix]').innerHTML = L.prix(l.prix);
     var qte = 1, out = $('[data-qte-out]'), btn = $('[data-ajouter-fiche]');
@@ -94,6 +100,22 @@
       g.from('.fiche__infos > *', { y: 30, opacity: 0, duration: 1, stagger: 0.07, ease: 'sol', delay: 0.25 });
       g.from('.meme-sol .carte', { y: 40, opacity: 0, stagger: 0.06, duration: 0.9, ease: 'sol', scrollTrigger: { trigger: '.meme-sol', start: 'top 80%', once: true } });
     }
+    /* Lien de partage */
+    var part = $('[data-partage]');
+    if (part) part.addEventListener('click', function () {
+      var url = window.location.href, fait = function () { part.textContent = 'Lien copié'; setTimeout(function () { part.textContent = 'Copier le lien de la fiche'; }, 1800); };
+      try { navigator.clipboard.writeText(url).then(fait, function () { L.toast('Copiez l’adresse dans la barre du navigateur'); }); } catch (e) { L.toast('Copiez l’adresse dans la barre du navigateur'); }
+    });
+
+    /* Données structurées pour les moteurs de recherche */
+    var ld = { '@context': 'https://schema.org', '@type': 'Book', name: l.titre, inLanguage: 'fr', publisher: { '@type': 'Organization', name: l.label || 'Libre & Solidaire' },
+      image: new URL(L.couv(l, 'm'), window.location.href).href, offers: { '@type': 'Offer', price: l.prix.toFixed(2), priceCurrency: 'EUR', availability: l.aParaitre ? 'https://schema.org/PreOrder' : 'https://schema.org/InStock' } };
+    if (l.auteurs) ld.author = l.auteurs.filter(function (a) { return !/collectif/i.test(a); }).map(function (a) { return { '@type': 'Person', name: a.replace(/\s*\(.*\)$/, '') }; });
+    if (l.resume) ld.description = l.resume;
+    if (l.isbn) ld.isbn = l.isbn;
+    var sc = document.createElement('script'); sc.type = 'application/ld+json'; sc.textContent = JSON.stringify(ld); document.head.appendChild(sc);
+    var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute('content', l.titre + (L.auteurs(l) ? ', ' + L.auteurs(l) : '') + ' · Éditions Libre & Solidaire');
+
     if (L.D.photosProvisoires) $$('[data-photo]').forEach(function (p) { p.insertAdjacentHTML('beforeend', '<span class="provisoire-tag">Visuel provisoire</span>'); });
     if (window.ScrollTrigger) ScrollTrigger.refresh();
   });

@@ -7,6 +7,12 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Éditions Libre & Solidaire : des livres pour appréhender l'avenir de notre société. Environnement, société, agriculture, écologie, économie, vin.">
 <meta name="theme-color" content="#16120e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Éditions Libre &amp; Solidaire">
+<meta property="og:title" content="Libre & Solidaire">
+<meta property="og:description" content="Éditions Libre & Solidaire : des livres pour appréhender l'avenir de notre société. Environnement, société, agriculture, écologie, économie, vin.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/divers/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/fraunces-var.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/instrument-sans-var.woff" as="font" type="font/woff" crossorigin>
@@ -21,21 +27,35 @@
     <a class="marque" href="./" aria-label="Libre &amp; Solidaire, accueil">Libre <span class="marque__esperluette">&amp;</span> Solidaire</a>
     <nav class="nav" aria-label="Navigation principale"><a href="catalogue.html">Catalogue</a><a href="#nouveautes">Nouveautés</a><a href="#territoires">Territoires</a><a href="#auteurs">Auteurs</a><a href="#manuscrits">Manuscrits</a></nav>
     <div class="entete__actions">
+      <button class="bouton-icone recherche-bouton" type="button" aria-haspopup="dialog" aria-controls="recherche-rapide" title="Rechercher (touche /)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><span class="recherche-libelle">Rechercher</span><kbd class="raccourci" aria-hidden="true">/</kbd></button>
       <button class="bouton-icone calme-bouton" type="button" aria-pressed="false" title="Réduire les animations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 12c3-4 6-4 9 0s6 4 9 0"/></svg><span class="calme-libelle">Mode calme</span></button>
-      <button class="bouton-icone panier-bouton" type="button" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="panier-compte" aria-live="polite">0</span></button>
+      <button class="bouton-icone panier-bouton" type="button" aria-label="Panier, 0 article" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="panier-compte" aria-live="polite">0</span></button>
       <button class="bouton-icone menu-bouton" type="button" aria-expanded="false" aria-controls="menu-plein" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
     </div>
   </div>
 </header>
-<div class="menu-plein" id="menu-plein" hidden>
+<div class="menu-plein" id="menu-plein" role="dialog" aria-modal="true" aria-label="Menu" hidden>
   <button class="bouton-icone menu-plein__fermer" type="button">Fermer</button>
   <nav aria-label="Menu"><a href="catalogue.html"><span>01</span>Catalogue</a><a href="#nouveautes"><span>02</span>Nouveautés</a><a href="#territoires"><span>03</span>Territoires</a><a href="#auteurs"><span>04</span>Auteurs</a><a href="#manuscrits"><span>05</span>Manuscrits</a></nav>
+</div>
+<div class="recherche-rapide" id="recherche-rapide" role="dialog" aria-modal="true" aria-label="Recherche dans le catalogue" hidden>
+  <div class="recherche-rapide__fond" data-fermer-recherche></div>
+  <div class="recherche-rapide__boite">
+    <div class="recherche-rapide__champ">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+      <label class="vh" for="rr-champ">Titre, auteur ou sujet</label>
+      <input id="rr-champ" type="search" placeholder="Titre, auteur, sujet…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="rr-resultats" aria-autocomplete="list">
+      <button class="bouton-icone" type="button" data-fermer-recherche>Fermer</button>
+    </div>
+    <ul class="recherche-rapide__resultats" id="rr-resultats" role="listbox" aria-label="Résultats"></ul>
+    <p class="recherche-rapide__pied"><span><kbd>↑</kbd><kbd>↓</kbd> naviguer</span><span><kbd>Entrée</kbd> ouvrir</span><span><kbd>Échap</kbd> fermer</span></p>
+  </div>
 </div>
 <div class="ouverture" aria-hidden="true">
   <canvas></canvas>
   <p class="ouverture__mot">Libre <em>&amp;</em> Solidaire</p>
   <p class="ouverture__compteur">Éditions · Paris 13<sup>e</sup></p>
-  <button class="ouverture__passer" type="button">Passer</button>
+  <button class="ouverture__passer" type="button" tabindex="-1">Passer</button>
 </div>
 <script>(function(){var o=document.querySelector('.ouverture');try{if(document.documentElement.classList.contains('calme')||sessionStorage.getItem('ls-ouverture-vue')==='1')o.remove()}catch(e){o.remove()}})();</script>
 
@@ -80,6 +100,7 @@
     </div>
   </section>
 
+<div class="horizon" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0 20 L48 21.2 L136 12.1 L183 19.9 L251 19.5 L315 25.2 L361 19.8 L425 18.8 L513 24.8 L597 19.0 L683 25.4 L760 28.0 L820 11.6 L861 22.7 L901 27.9 L965 23.4 L1032 24.1 L1105 15.0 L1173 27.9 L1248 15.2 L1302 23.2 L1390 19.3 L1440 27.7"/><circle cx="892" cy="25.4" r="2.0"/><circle cx="1355" cy="13.6" r="2.1"/><circle cx="647" cy="13.9" r="1.7"/><circle cx="1065" cy="27.0" r="1.8"/><circle cx="428" cy="16.9" r="2.0"/><circle cx="1062" cy="25.5" r="1.9"/><circle cx="1246" cy="25.7" r="1.9"/></svg></div>
   <section class="nouveautes bande" id="nouveautes" aria-labelledby="titre-nouv">
     <div class="nouveautes__epingle">
       <div class="nouveautes__fond photo--teinte" data-photo><img src="assets/img/photos/accueil-nouveautes-terre.webp" alt="" loading="lazy" decoding="async"></div>
@@ -110,6 +131,7 @@
     </div>
   </section>
 
+<div class="horizon" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0 20 L43 12.6 L106 26.0 L193 25.6 L252 15.5 L305 21.9 L382 23.3 L449 22.5 L535 26.5 L607 28.1 L681 27.8 L753 15.8 L795 26.7 L858 19.4 L918 27.3 L985 27.1 L1058 14.0 L1109 15.3 L1150 14.2 L1201 13.5 L1273 17.5 L1345 23.1 L1396 28.9 L1440 25.3"/><circle cx="1115" cy="26.5" r="2.3"/><circle cx="1255" cy="17.7" r="2.6"/><circle cx="952" cy="14.6" r="2.3"/><circle cx="984" cy="22.5" r="1.5"/><circle cx="611" cy="26.8" r="1.9"/><circle cx="764" cy="22.6" r="1.8"/><circle cx="984" cy="17.6" r="2.2"/></svg></div>
   <section class="section bande" id="territoires" aria-labelledby="titre-terr">
     <div class="conteneur">
       <div class="section__tete">
@@ -123,6 +145,7 @@
     </div>
   </section>
 
+<div class="horizon" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0 20 L55 21.7 L103 17.7 L181 19.5 L258 12.2 L298 27.4 L368 15.7 L422 14.5 L507 19.5 L582 19.6 L662 26.5 L716 22.4 L789 18.0 L829 23.1 L873 13.9 L950 11.8 L1039 11.6 L1096 19.5 L1182 27.6 L1246 23.9 L1313 18.1 L1389 19.0 L1437 26.8 L1440 11.6"/><circle cx="1053" cy="15.5" r="2.6"/><circle cx="933" cy="24.5" r="2.4"/><circle cx="902" cy="20.1" r="1.7"/><circle cx="758" cy="20.5" r="1.8"/><circle cx="515" cy="26.5" r="2.2"/><circle cx="98" cy="25.7" r="2.6"/><circle cx="374" cy="23.2" r="1.7"/></svg></div>
   <section class="section reseau bande" id="reseau" aria-labelledby="titre-reseau">
     <div class="conteneur">
       <div class="section__tete">
@@ -161,6 +184,7 @@
     </div>
   </section>
 
+<div class="horizon" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0 20 L55 16.5 L141 18.1 L190 12.6 L231 18.2 L289 25.4 L377 12.1 L450 20.7 L507 25.0 L553 15.7 L594 25.9 L650 25.4 L702 14.0 L760 22.3 L846 28.3 L909 12.6 L987 17.1 L1051 20.1 L1102 15.5 L1159 12.6 L1234 26.1 L1274 27.4 L1350 23.7 L1409 26.3 L1440 14.5"/><circle cx="907" cy="21.6" r="1.8"/><circle cx="370" cy="15.7" r="1.6"/><circle cx="128" cy="13.3" r="1.8"/><circle cx="614" cy="20.3" r="2.1"/><circle cx="742" cy="14.3" r="2.1"/><circle cx="176" cy="18.6" r="1.5"/><circle cx="1335" cy="19.1" r="1.5"/></svg></div>
   <section class="section auteurs bande" id="auteurs" aria-labelledby="titre-auteurs">
     <div class="auteurs__fond photo--teinte" data-parallaxe="6" data-photo><img src="assets/img/photos/accueil-auteurs-table.webp" alt="" loading="lazy" decoding="async"></div>
     <div class="conteneur">
@@ -174,7 +198,7 @@
     <div class="auteurs__flottant" aria-hidden="true"><img alt=""></div>
   </section>
 
-  <section class="section bande" id="manuscrits" aria-labelledby="titre-manus">
+  <section class="section bande papier" id="manuscrits" aria-labelledby="titre-manus">
     <div class="conteneur manuscrits__grille">
       <div>
         <p class="surtitre">Manuscrits</p>
@@ -196,7 +220,7 @@
             <div class="champ"><label for="m-terr">Territoire</label><select id="m-terr" name="territoire"><option>Société</option><option>Environnement et écologie</option><option>Vin et viticulture</option><option>Autonomia</option><option>Autre</option></select></div>
           </div>
           <div class="champ"><label for="m-synopsis">Synopsis</label><textarea id="m-synopsis" name="synopsis" placeholder="En quelques lignes : le propos, le public, l’état d’avancement."></textarea></div>
-          <div class="champ"><label for="m-fichier">Manuscrit (PDF ou Word)</label><input id="m-fichier" name="fichier" type="file" accept=".pdf,.doc,.docx,.odt"></div>
+          <div class="champ"><span class="champ__titre" id="m-fichier-titre" style="font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.06em;color:var(--os-2)">Manuscrit (PDF ou Word)</span><div class="fichier"><input id="m-fichier" name="fichier" type="file" accept=".pdf,.doc,.docx,.odt" aria-labelledby="m-fichier-titre"><label class="fichier__bouton" for="m-fichier">Joindre un fichier</label><span class="fichier__nom" data-fichier-nom aria-live="polite">Aucun fichier choisi</span></div></div>
           <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center"><button class="bouton magnetique" type="submit">Envoyer (simulation)</button><p class="formulaire__note">Formulaire de démonstration : rien n’est transmis.</p></div>
           <p class="retour-simule" role="status"></p>
         </form>
@@ -259,15 +283,15 @@
       </div>
       <div>
         <p class="pied__titre">Informations</p>
-        <ul><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FTermsAndConditions" target="_blank" rel="noopener">Conditions générales de vente</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FCustomerInformation" target="_blank" rel="noopener">Droit de retrait</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FPrivacyPolicy" target="_blank" rel="noopener">Confidentialité</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FImprint" target="_blank" rel="noopener">Mentions légales</a></li></ul>
+        <ul><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FTermsAndConditions" target="_blank" rel="noopener">Conditions générales de vente<span class="vh"> (site actuel, nouvel onglet)</span></a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FCustomerInformation" target="_blank" rel="noopener">Droit de retrait</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FPrivacyPolicy" target="_blank" rel="noopener">Confidentialité</a></li><li><a href="https://libre-solidaire.fr/epages/e02491b5-ce3a-4c00-b187-dc9ff39194fc.sf/fr_FR/?ObjectPath=%2FShops%2Fe02491b5-ce3a-4c00-b187-dc9ff39194fc%2FCategories%2FImprint" target="_blank" rel="noopener">Mentions légales</a></li></ul>
       </div>
     </div>
     <p class="pied__marque" aria-hidden="true">Libre<em>&amp;</em>Solidaire</p>
-    <div class="pied__bas"><span>© Éditions Libre &amp; Solidaire</span><span>Maquette de démonstration · contenus à valider par l'éditeur</span><span>Prix TTC · livraison 5,00 €</span></div>
+    <div class="pied__bas"><button class="haut-de-page" type="button" data-haut>Revenir en haut ↑</button><span>© Éditions Libre &amp; Solidaire</span><span>Maquette de démonstration · contenus à valider par l'éditeur</span><span>Prix TTC · livraison 5,00 €</span></div>
   </div>
 </footer>
 <div class="tiroir-fond" aria-hidden="true"></div>
-<aside class="tiroir" aria-label="Panier" aria-hidden="true" inert>
+<aside class="tiroir" role="dialog" aria-modal="true" aria-label="Panier" aria-hidden="true" inert>
   <div class="tiroir__tete"><h2>Panier</h2><button class="bouton-icone tiroir__fermer" type="button">Fermer</button></div>
   <ul class="tiroir__liste"></ul>
   <div class="tiroir__totaux"></div>

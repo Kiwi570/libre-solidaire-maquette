@@ -11,7 +11,7 @@
     var hashT = (window.location.hash.match(/^#t-(\w+)$/) || [])[1];
     var prixMaxCat = Math.ceil(Math.max.apply(null, livres.map(function (l) { return l.prix; })));
     var etat = {
-      q: '', terr: params.get('t') || hashT || 'tous', dispo: params.get('dispo') || 'tous',
+      q: params.get('q') || '', terr: params.get('t') || hashT || 'tous', dispo: params.get('dispo') || 'tous',
       prixMax: prixMaxCat, tri: L.lire('ls-tri') || 'titre', vue: L.lire('ls-vue') || 'grille'
     };
     if (etat.terr !== 'tous' && !L.territoire(etat.terr)) etat.terr = 'tous';
@@ -41,7 +41,7 @@
 
     var champQ = $('#recherche'), selDispo = $('#dispo'), selTri = $('#tri'), rngPrix = $('#prix-max'), outPrix = $('[data-prix-max]');
     rngPrix.max = prixMaxCat; rngPrix.value = prixMaxCat; outPrix.textContent = prixMaxCat + ' €';
-    selDispo.value = etat.dispo; selTri.value = etat.tri;
+    selDispo.value = etat.dispo; selTri.value = etat.tri; champQ.value = etat.q;
 
     var reseau = null;
     function normal(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
@@ -51,6 +51,7 @@
         if (etat.terr !== 'tous' && !(l.thematiques && l.thematiques.indexOf(etat.terr) > -1)) return false;
         if (etat.dispo === 'stock' && (l.aParaitre || !l.stock)) return false;
         if (etat.dispo === 'paraitre' && !l.aParaitre) return false;
+        if (etat.dispo === 'nouveautes' && !l.nouveau) return false;
         if (l.prix > etat.prixMax) return false;
         if (q && normal(l.titre + ' ' + (l.auteurs || []).join(' ') + ' ' + (l.resume || '')).indexOf(q) === -1) return false;
         return true;
@@ -59,11 +60,27 @@
         titre: function (a, b) { return a.titre.localeCompare(b.titre, 'fr', { sensitivity: 'base', ignorePunctuation: true }); },
         prixc: function (a, b) { return a.prix - b.prix; },
         prixd: function (a, b) { return b.prix - a.prix; },
+        auteur: function (a, b) { var x = nom(a), y = nom(b); if (!x) return 1; if (!y) return -1; return x.localeCompare(y, 'fr', { sensitivity: 'base' }) || a.titre.localeCompare(b.titre, 'fr'); },
         nouv: function (a, b) { return (b.nouveau - a.nouveau) || (b.aParaitre - a.aParaitre) || a.titre.localeCompare(b.titre, 'fr'); }
       }[etat.tri];
       return res.sort(tri);
     }
+    function nom(l) {
+      var a = l.auteurs && l.auteurs[0]; if (!a || /collectif/i.test(a)) return '';
+      var mots = a.replace(/\s*\(.*\)\s*$/, '').trim().split(/\s+/); return mots[mots.length - 1];
+    }
+    function memoriserURL() {
+      try {
+        var p = new URLSearchParams();
+        if (etat.terr !== 'tous') p.set('t', etat.terr);
+        if (etat.q.trim()) p.set('q', etat.q.trim());
+        if (etat.dispo !== 'tous') p.set('dispo', etat.dispo);
+        var qs = p.toString();
+        history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : ''));
+      } catch (e) {}
+    }
     function rendre(premier) {
+      memoriserURL();
       var res = filtrer();
       $$('.puce', puces).forEach(function (p) { p.setAttribute('aria-pressed', p.getAttribute('data-terr') === etat.terr ? 'true' : 'false'); });
       var info = $('[data-info]');
@@ -86,6 +103,7 @@
           onLeave: function (el) { return g.to(el, { opacity: 0, scale: 0.85, duration: 0.35 }); } });
       } else if (premier && anim) {
         g.from($$('.carte:not([hidden])', grille).slice(0, 12), { y: 50, opacity: 0, duration: 1, stagger: 0.05, ease: 'sol', delay: 0.5 });
+        if (window.ScrollTrigger) ScrollTrigger.batch($$('.carte:not([hidden])', grille).slice(12), { start: 'top 96%', once: true, onEnter: function (els) { g.from(els, { y: 36, opacity: 0, duration: 0.9, stagger: 0.05, ease: 'sol' }); } });
       }
       if (window.ScrollTrigger) ScrollTrigger.refresh();
     }
