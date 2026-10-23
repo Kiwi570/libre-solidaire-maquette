@@ -61,7 +61,7 @@
     var t = l.thematiques && l.thematiques[0] && terrParId[l.thematiques[0]];
     var badges = (l.nouveau ? '<span class="badge">Nouveau</span>' : '') + (l.aParaitre ? '<span class="badge badge--paraitre">À paraître</span>' : '');
     return '<article class="carte" data-ref="' + esc(l.ref) + '">' +
-      '<a class="carte__couv" href="' + lienLivre(l) + '" data-curseur="livre" aria-label="' + esc(l.titre) + '">' +
+      '<a class="carte__couv" href="' + lienLivre(l) + '" data-curseur="livre" tabindex="-1" aria-hidden="true">' +
       '<img src="' + couv(l, 's') + '" srcset="' + srcset(l) + '" sizes="(max-width: 760px) 45vw, 240px" alt="Couverture de ' + esc(l.titre) + '" ' + (i < 10 ? '' : 'loading="lazy" ') + 'decoding="async" width="' + (l.couv ? l.couv.w : 400) + '" height="' + (l.couv ? l.couv.h : 600) + '">' +
       (badges ? '<span class="carte__badges">' + badges + '</span>' : '') + '</a>' +
       '<a class="carte__titre" href="' + lienLivre(l) + '">' + esc(l.titre) + '</a>' +
@@ -188,9 +188,22 @@
         var id = a.getAttribute('href'); if (id.length < 2) return;
         var cible = document.querySelector(id); if (!cible) return;
         e.preventDefault(); lenis.scrollTo(cible, { offset: -10, duration: 1.4 });
+        // le focus suit la cible (lien d'évitement, ancres du menu)
+        if (!cible.hasAttribute('tabindex')) cible.setAttribute('tabindex', '-1');
+        cible.focus({ preventScroll: true });
       });
     });
   }
+
+  /* lien d'évitement : fonctionne aussi sans Lenis et sur la 404 (où <base href="/"> réécrit les ancres) */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.lien-evitement');
+    if (!a || lenis) return;
+    var cible = document.querySelector(a.getAttribute('href')); if (!cible) return;
+    e.preventDefault();
+    if (!cible.hasAttribute('tabindex')) cible.setAttribute('tabindex', '-1');
+    cible.focus({ preventScroll: true }); cible.scrollIntoView();
+  });
 
   /* ---------- En-tête ---------- */
   function initEntete() {

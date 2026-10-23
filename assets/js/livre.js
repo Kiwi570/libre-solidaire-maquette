@@ -18,7 +18,12 @@
       (t ? '<a href="catalogue.html?t=' + t.id + '">' + L.esc(t.nom) + '</a><span aria-hidden="true">/</span>' : '') + '<span aria-current="page">Réf. ' + L.esc(l.ref) + '</span>';
 
     /* Livre 3D avec quatrième provisoire */
-    var quatrieme = '<span class="quatrieme" style="background:' + (l.couv ? l.couv.dos : '#3a2f25') + '"><strong>' + L.esc(l.titre) + '</strong>' +
+    // texte foncé sur un dos clair (93 dos sur 117 sont clairs), clair sur un dos foncé
+    var dos = l.couv ? l.couv.dos : '#3a2f25';
+    var hex = String(dos).replace('#', ''); if (hex.length === 3) hex = hex.replace(/./g, '$&$&');
+    var lum = (parseInt(hex.slice(0, 2), 16) * 299 + parseInt(hex.slice(2, 4), 16) * 587 + parseInt(hex.slice(4, 6), 16) * 114) / 1000;
+    var encre = lum > 150 ? ';color:#2b231b' : '';
+    var quatrieme = '<span class="quatrieme" style="background:' + dos + encre + '"><strong>' + L.esc(l.titre) + '</strong>' +
       '<span>' + (l.resume ? L.esc(l.resume) : 'Texte de quatrième à fournir.') + '</span><small>Quatrième provisoire · ' + L.prix(l.prix) + '</small></span>';
     var scene = $('[data-scene]');
     scene.insertAdjacentHTML('afterbegin', L.livre3d(l, { eager: true, quatrieme: quatrieme, ep: l.pages ? null : 22 }));

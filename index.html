@@ -3,19 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
 <title>Libre & Solidaire</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Éditions Libre & Solidaire : des livres pour appréhender l'avenir de notre société. Environnement, société, agriculture, écologie, économie, vin.">
+<meta name="description" content="Éditions Libre & Solidaire&nbsp;: des livres pour appréhender l’avenir de notre société. Environnement, société, agriculture, écologie, économie, vin.">
 <meta name="theme-color" content="#16120e">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Éditions Libre &amp; Solidaire">
 <meta property="og:title" content="Libre & Solidaire">
-<meta property="og:description" content="Éditions Libre & Solidaire : des livres pour appréhender l'avenir de notre société. Environnement, société, agriculture, écologie, économie, vin.">
+<meta property="og:description" content="Éditions Libre & Solidaire&nbsp;: des livres pour appréhender l’avenir de notre société. Environnement, société, agriculture, écologie, économie, vin.">
+<meta property="og:image" content="https://libre-solidaire-maquette.vercel.app/assets/img/divers/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://libre-solidaire-maquette.vercel.app/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/divers/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/fraunces-var.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" href="assets/fonts/instrument-sans-var.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-var-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css">
 <script>try{if(localStorage.getItem('ls-calme')==='1'||(localStorage.getItem('ls-calme')===null&&matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.classList.add('calme')}catch(e){}</script>
 </head>
@@ -34,11 +39,11 @@
     </div>
   </div>
 </header>
-<div class="menu-plein" id="menu-plein" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+<div class="menu-plein" id="menu-plein" role="dialog" aria-modal="true" aria-label="Menu" hidden data-lenis-prevent>
   <button class="bouton-icone menu-plein__fermer" type="button">Fermer</button>
   <nav aria-label="Menu"><a href="catalogue.html"><span>01</span>Catalogue</a><a href="#nouveautes"><span>02</span>Nouveautés</a><a href="#territoires"><span>03</span>Territoires</a><a href="#auteurs"><span>04</span>Auteurs</a><a href="#manuscrits"><span>05</span>Manuscrits</a></nav>
 </div>
-<div class="recherche-rapide" id="recherche-rapide" role="dialog" aria-modal="true" aria-label="Recherche dans le catalogue" hidden>
+<div class="recherche-rapide" id="recherche-rapide" role="dialog" aria-modal="true" aria-label="Recherche dans le catalogue" hidden data-lenis-prevent>
   <div class="recherche-rapide__fond" data-fermer-recherche></div>
   <div class="recherche-rapide__boite">
     <div class="recherche-rapide__champ">
@@ -72,7 +77,7 @@
       <div>
         <p class="surtitre">Éditions indépendantes · Paris 13<sup>e</sup></p>
         <h1 class="heros__titre" id="titre-heros">Des livres pour appréhender <em>l’avenir</em> de notre société.</h1>
-        <p class="heros__sous">Environnement, société, agriculture, écologie, économie, vin : des ouvrages qui interpellent sur les bouleversements de notre époque.</p>
+        <p class="heros__sous">Environnement, société, agriculture, écologie, économie, vin&nbsp;: des ouvrages qui interpellent sur les bouleversements de notre époque.</p>
         <div class="heros__actions">
           <a class="bouton magnetique" href="catalogue.html">Explorer le catalogue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="bouton bouton--creux magnetique" href="#nouveautes">Les nouveautés</a>
@@ -136,7 +141,7 @@
     <div class="conteneur">
       <div class="section__tete">
         <div><p class="surtitre">Quatre territoires</p><h2 class="section__titre" id="titre-terr" data-titre-split>Un catalogue en <em>strates</em></h2></div>
-        <p class="section__intro">Société, environnement, vigne, autonomie : les quatre sols où poussent les livres de la maison. Descendez pour les traverser.</p>
+        <p class="section__intro">Société, environnement, vigne, autonomie&nbsp;: les quatre sols où poussent les livres de la maison. Descendez pour les traverser.</p>
       </div>
       <div class="territoires__scene">
         <div class="carotte" aria-hidden="true"><div class="carotte__tube" data-carotte></div></div>
@@ -176,7 +181,7 @@
         <div>
           <p class="surtitre">Vigne et vin</p>
           <h2 class="section__titre" id="titre-vin" data-titre-split>De la vigne <em>au livre</em></h2>
-          <p class="section__intro" style="margin-top:20px"><span data-vin-nb>11</span> livres sur la vigne : biodynamie, vin naturel, histoire, climat et cépages.</p>
+          <p class="section__intro" style="margin-top:20px"><span data-vin-nb>11</span> livres sur la vigne&nbsp;: biodynamie, vin naturel, histoire, climat et cépages.</p>
           <div class="vin__vedette" data-vin-vedette></div>
         </div>
         <div class="vin__etagere" data-vin-etagere></div>
@@ -202,14 +207,14 @@
     <div class="conteneur manuscrits__grille">
       <div>
         <p class="surtitre">Manuscrits</p>
-        <h2 class="section__titre" id="titre-manus" data-titre-split>Vous écrivez sur <em>notre époque</em> ?</h2>
+        <h2 class="section__titre" id="titre-manus" data-titre-split>Vous écrivez sur <em>notre époque</em>&nbsp;?</h2>
         <p class="section__intro" style="margin-top:20px">La maison lit les textes qui s’inscrivent dans sa ligne éditoriale.</p>
         <ul class="conditions">
           <li><span>01</span><div><strong>Envoyez le manuscrit ou un synopsis</strong>, par courriel ou par la poste.</div></li>
           <li><span>02</span><div><strong>Réponse sous trois mois</strong> après réception, par courriel ou par courrier.</div></li>
-          <li><span>03</span><div><strong>Texte non retenu</strong> : conservé deux mois après la réponse, récupérable contre les timbres du retour, puis détruit.</div></li>
+          <li><span>03</span><div><strong>Texte non retenu</strong>&nbsp;: conservé deux mois après la réponse, récupérable contre les timbres du retour, puis détruit.</div></li>
         </ul>
-        <div class="adresse"><span>Libre &amp; Solidaire</span><span>37 rue Clisson</span><span>75013 Paris</span><span>libre.solidaire@gmail.com</span></div>
+        <div class="adresse"><span>Libre &amp; Solidaire</span><span>37 rue Clisson</span><span>75013 Paris</span><a href="mailto:libre.solidaire@gmail.com">libre.solidaire@gmail.com</a></div>
         <form class="formulaire" data-form-manuscrit novalidate>
           <div class="formulaire__ligne">
             <div class="champ"><label for="m-nom">Nom et prénom</label><input id="m-nom" name="nom" autocomplete="name" required></div>
@@ -219,9 +224,9 @@
             <div class="champ"><label for="m-titre">Titre du texte</label><input id="m-titre" name="titre" required></div>
             <div class="champ"><label for="m-terr">Territoire</label><select id="m-terr" name="territoire"><option>Société</option><option>Environnement et écologie</option><option>Vin et viticulture</option><option>Autonomia</option><option>Autre</option></select></div>
           </div>
-          <div class="champ"><label for="m-synopsis">Synopsis</label><textarea id="m-synopsis" name="synopsis" placeholder="En quelques lignes : le propos, le public, l’état d’avancement."></textarea></div>
+          <div class="champ"><label for="m-synopsis">Synopsis</label><textarea id="m-synopsis" name="synopsis" placeholder="En quelques lignes&nbsp;: le propos, le public, l’état d’avancement."></textarea></div>
           <div class="champ"><span class="champ__titre" id="m-fichier-titre" style="font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.06em;color:var(--os-2)">Manuscrit (PDF ou Word)</span><div class="fichier"><input id="m-fichier" name="fichier" type="file" accept=".pdf,.doc,.docx,.odt" aria-labelledby="m-fichier-titre"><label class="fichier__bouton" for="m-fichier">Joindre un fichier</label><span class="fichier__nom" data-fichier-nom aria-live="polite">Aucun fichier choisi</span></div></div>
-          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center"><button class="bouton magnetique" type="submit">Envoyer (simulation)</button><p class="formulaire__note">Formulaire de démonstration : rien n’est transmis.</p></div>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center"><button class="bouton magnetique" type="submit">Envoyer (simulation)</button><p class="formulaire__note">Formulaire de démonstration&nbsp;: rien n’est transmis.</p></div>
           <p class="retour-simule" role="status"></p>
         </form>
       </div>
@@ -250,7 +255,7 @@
             <div class="champ"><label for="l-nom">Nom</label><input id="l-nom" name="nom" autocomplete="family-name" required></div>
             <div class="champ champ--large"><label for="l-courriel">Adresse e-mail</label><input id="l-courriel" name="courriel" type="email" autocomplete="email" required></div>
             <button class="bouton magnetique" type="submit">S’inscrire (simulation)</button>
-            <p class="formulaire__note champ--large">Mention RGPD à rédiger par la maison : usage des données, durée de conservation, désinscription.</p>
+            <p class="formulaire__note champ--large">Mention RGPD à rédiger par la maison&nbsp;: usage des données, durée de conservation, désinscription.</p>
             <p class="retour-simule champ--large" role="status"></p>
           </form>
         </div>
@@ -269,8 +274,8 @@
         <div class="pied__coord">
           <span>Libre &amp; Solidaire / M.E.C.</span>
           <span>37 rue Clisson, 75013 Paris</span>
-          <span><span class="selectionnable">01 48 74 15 23</span><button class="copier" type="button" data-copier="01 48 74 15 23">Copier</button></span>
-          <span><span class="selectionnable">libre.solidaire@gmail.com</span><button class="copier" type="button" data-copier="libre.solidaire@gmail.com">Copier</button></span>
+          <span><a class="selectionnable" href="tel:+33148741523">01 48 74 15 23</a><button class="copier" type="button" data-copier="01 48 74 15 23" aria-label="Copier le numéro">Copier</button></span>
+          <span><a class="selectionnable" href="mailto:libre.solidaire@gmail.com">libre.solidaire@gmail.com</a><button class="copier" type="button" data-copier="libre.solidaire@gmail.com" aria-label="Copier l’e-mail">Copier</button></span>
         </div>
       </div>
       <div>
@@ -279,7 +284,7 @@
       </div>
       <div>
         <p class="pied__titre">Suivre</p>
-        <ul><li><a href="https://www.facebook.com/libreetsolidaireparis/" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/editions_libresolidaire/" target="_blank" rel="noopener">Instagram</a></li><li><a href="http://libreetsolidaire.blogspot.com/" target="_blank" rel="noopener">Blog</a></li><li><a href="#lettre">Lettre d'information</a></li></ul>
+        <ul><li><a href="https://www.facebook.com/libreetsolidaireparis/" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/editions_libresolidaire/" target="_blank" rel="noopener">Instagram</a></li><li><a href="http://libreetsolidaire.blogspot.com/" target="_blank" rel="noopener">Blog</a></li><li><a href="#lettre">Lettre d’information</a></li></ul>
       </div>
       <div>
         <p class="pied__titre">Informations</p>
@@ -287,17 +292,17 @@
       </div>
     </div>
     <p class="pied__marque" aria-hidden="true">Libre<em>&amp;</em>Solidaire</p>
-    <div class="pied__bas"><button class="haut-de-page" type="button" data-haut>Revenir en haut ↑</button><span>© Éditions Libre &amp; Solidaire</span><span>Maquette de démonstration · contenus à valider par l'éditeur</span><span>Prix TTC · livraison 5,00 €</span></div>
+    <div class="pied__bas"><button class="haut-de-page" type="button" data-haut>Revenir en haut ↑</button><span>© Éditions Libre &amp; Solidaire</span><span>Maquette de démonstration · contenus à valider par l’éditeur</span><span>Prix TTC · livraison 5,00 €</span></div>
   </div>
 </footer>
 <div class="tiroir-fond" aria-hidden="true"></div>
-<aside class="tiroir" role="dialog" aria-modal="true" aria-label="Panier" aria-hidden="true" inert>
+<aside class="tiroir" role="dialog" aria-modal="true" aria-label="Panier" aria-hidden="true" inert data-lenis-prevent>
   <div class="tiroir__tete"><h2>Panier</h2><button class="bouton-icone tiroir__fermer" type="button">Fermer</button></div>
   <ul class="tiroir__liste"></ul>
   <div class="tiroir__totaux"></div>
-  <p class="tiroir__note">Prix TTC. Livraison à 5,00 € comme sur le site actuel. Panier de démonstration : aucune commande n'est passée.</p>
+  <p class="tiroir__note">Prix TTC. Livraison à 5,00 € comme sur le site actuel. Panier de démonstration&nbsp;: aucune commande n’est passée.</p>
   <div class="tiroir__commande"><button class="bouton" type="button" data-commander>Passer commande (simulation)</button></div>
-  <div class="paiement" role="status">Étape de paiement simulée. Moyens de paiement acceptés : <span class="a-completer">à compléter d'après les CGV</span></div>
+  <div class="paiement" role="status">Étape de paiement simulée. Moyens de paiement acceptés&nbsp;: <span class="a-completer">à compléter d’après les CGV</span></div>
 </aside>
 <script src="assets/vendor/gsap.min.js"></script>
 <script src="assets/vendor/ScrollTrigger.min.js"></script>

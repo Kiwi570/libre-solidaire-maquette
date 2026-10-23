@@ -3,19 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Le Principe fertilité · Libre & Solidaire</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Fiche livre · Libre & Solidaire</title>
 <meta name="description" content="Fiche livre des Éditions Libre & Solidaire.">
 <meta name="theme-color" content="#16120e">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Éditions Libre &amp; Solidaire">
-<meta property="og:title" content="Le Principe fertilité · Libre & Solidaire">
+<meta property="og:title" content="Fiche livre · Libre & Solidaire">
 <meta property="og:description" content="Fiche livre des Éditions Libre & Solidaire.">
+<meta property="og:image" content="https://libre-solidaire-maquette.vercel.app/assets/img/divers/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://libre-solidaire-maquette.vercel.app/livre">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/divers/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/fraunces-var.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" href="assets/fonts/instrument-sans-var.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css">
 <script>try{if(localStorage.getItem('ls-calme')==='1'||(localStorage.getItem('ls-calme')===null&&matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.classList.add('calme')}catch(e){}</script>
 </head>
@@ -34,11 +38,11 @@
     </div>
   </div>
 </header>
-<div class="menu-plein" id="menu-plein" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+<div class="menu-plein" id="menu-plein" role="dialog" aria-modal="true" aria-label="Menu" hidden data-lenis-prevent>
   <button class="bouton-icone menu-plein__fermer" type="button">Fermer</button>
   <nav aria-label="Menu"><a href="catalogue.html"><span>01</span>Catalogue</a><a href="./#nouveautes"><span>02</span>Nouveautés</a><a href="./#territoires"><span>03</span>Territoires</a><a href="./#auteurs"><span>04</span>Auteurs</a><a href="./#manuscrits"><span>05</span>Manuscrits</a></nav>
 </div>
-<div class="recherche-rapide" id="recherche-rapide" role="dialog" aria-modal="true" aria-label="Recherche dans le catalogue" hidden>
+<div class="recherche-rapide" id="recherche-rapide" role="dialog" aria-modal="true" aria-label="Recherche dans le catalogue" hidden data-lenis-prevent>
   <div class="recherche-rapide__fond" data-fermer-recherche></div>
   <div class="recherche-rapide__boite">
     <div class="recherche-rapide__champ">
@@ -62,7 +66,7 @@
         </div>
         <div class="fiche__infos">
           <div data-label></div>
-          <h1 class="fiche__titre" id="titre-livre" data-titre>Le Principe fertilité</h1>
+          <h1 class="fiche__titre" id="titre-livre" data-titre>Fiche livre</h1>
           <p class="fiche__auteur" data-auteur></p>
           <div data-avis style="margin-top:12px"></div>
           <div class="fiche__achat">
@@ -105,8 +109,8 @@
         <div class="pied__coord">
           <span>Libre &amp; Solidaire / M.E.C.</span>
           <span>37 rue Clisson, 75013 Paris</span>
-          <span><span class="selectionnable">01 48 74 15 23</span><button class="copier" type="button" data-copier="01 48 74 15 23">Copier</button></span>
-          <span><span class="selectionnable">libre.solidaire@gmail.com</span><button class="copier" type="button" data-copier="libre.solidaire@gmail.com">Copier</button></span>
+          <span><a class="selectionnable" href="tel:+33148741523">01 48 74 15 23</a><button class="copier" type="button" data-copier="01 48 74 15 23" aria-label="Copier le numéro">Copier</button></span>
+          <span><a class="selectionnable" href="mailto:libre.solidaire@gmail.com">libre.solidaire@gmail.com</a><button class="copier" type="button" data-copier="libre.solidaire@gmail.com" aria-label="Copier l’e-mail">Copier</button></span>
         </div>
       </div>
       <div>
@@ -115,7 +119,7 @@
       </div>
       <div>
         <p class="pied__titre">Suivre</p>
-        <ul><li><a href="https://www.facebook.com/libreetsolidaireparis/" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/editions_libresolidaire/" target="_blank" rel="noopener">Instagram</a></li><li><a href="http://libreetsolidaire.blogspot.com/" target="_blank" rel="noopener">Blog</a></li><li><a href="./#lettre">Lettre d'information</a></li></ul>
+        <ul><li><a href="https://www.facebook.com/libreetsolidaireparis/" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/editions_libresolidaire/" target="_blank" rel="noopener">Instagram</a></li><li><a href="http://libreetsolidaire.blogspot.com/" target="_blank" rel="noopener">Blog</a></li><li><a href="./#lettre">Lettre d’information</a></li></ul>
       </div>
       <div>
         <p class="pied__titre">Informations</p>
@@ -123,17 +127,17 @@
       </div>
     </div>
     <p class="pied__marque" aria-hidden="true">Libre<em>&amp;</em>Solidaire</p>
-    <div class="pied__bas"><button class="haut-de-page" type="button" data-haut>Revenir en haut ↑</button><span>© Éditions Libre &amp; Solidaire</span><span>Maquette de démonstration · contenus à valider par l'éditeur</span><span>Prix TTC · livraison 5,00 €</span></div>
+    <div class="pied__bas"><button class="haut-de-page" type="button" data-haut>Revenir en haut ↑</button><span>© Éditions Libre &amp; Solidaire</span><span>Maquette de démonstration · contenus à valider par l’éditeur</span><span>Prix TTC · livraison 5,00 €</span></div>
   </div>
 </footer>
 <div class="tiroir-fond" aria-hidden="true"></div>
-<aside class="tiroir" role="dialog" aria-modal="true" aria-label="Panier" aria-hidden="true" inert>
+<aside class="tiroir" role="dialog" aria-modal="true" aria-label="Panier" aria-hidden="true" inert data-lenis-prevent>
   <div class="tiroir__tete"><h2>Panier</h2><button class="bouton-icone tiroir__fermer" type="button">Fermer</button></div>
   <ul class="tiroir__liste"></ul>
   <div class="tiroir__totaux"></div>
-  <p class="tiroir__note">Prix TTC. Livraison à 5,00 € comme sur le site actuel. Panier de démonstration : aucune commande n'est passée.</p>
+  <p class="tiroir__note">Prix TTC. Livraison à 5,00 € comme sur le site actuel. Panier de démonstration&nbsp;: aucune commande n’est passée.</p>
   <div class="tiroir__commande"><button class="bouton" type="button" data-commander>Passer commande (simulation)</button></div>
-  <div class="paiement" role="status">Étape de paiement simulée. Moyens de paiement acceptés : <span class="a-completer">à compléter d'après les CGV</span></div>
+  <div class="paiement" role="status">Étape de paiement simulée. Moyens de paiement acceptés&nbsp;: <span class="a-completer">à compléter d’après les CGV</span></div>
 </aside>
 <script src="assets/vendor/gsap.min.js"></script>
 <script src="assets/vendor/ScrollTrigger.min.js"></script>

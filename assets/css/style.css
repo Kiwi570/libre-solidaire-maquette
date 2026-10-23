@@ -2,11 +2,11 @@
    Mise en page : un sol sombre en strates, des bandes pleine largeur, le contenu dans un conteneur à gouttières ;
    les couvertures sont les seules couleurs vives. */
 
-@font-face { font-family: "Fraunces"; src: url("../fonts/fraunces-var.woff") format("woff"); font-weight: 100 900; font-style: normal; font-display: swap; }
-@font-face { font-family: "Fraunces"; src: url("../fonts/fraunces-var-italic.woff") format("woff"); font-weight: 100 900; font-style: italic; font-display: swap; }
-@font-face { font-family: "Instrument Sans"; src: url("../fonts/instrument-sans-var.woff") format("woff"); font-weight: 400 700; font-stretch: 75% 100%; font-style: normal; font-display: swap; }
-@font-face { font-family: "IBM Plex Mono"; src: url("../fonts/ibm-plex-mono-regular.woff") format("woff"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "IBM Plex Mono"; src: url("../fonts/ibm-plex-mono-medium.woff") format("woff"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Fraunces"; src: url("../fonts/fraunces-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Fraunces"; src: url("../fonts/fraunces-var-italic.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
+@font-face { font-family: "Instrument Sans"; src: url("../fonts/instrument-sans-var.woff2") format("woff2"); font-weight: 400 700; font-stretch: 75% 100%; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("../fonts/ibm-plex-mono-regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("../fonts/ibm-plex-mono-medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 
 :root {
   color-scheme: dark;
@@ -709,10 +709,14 @@ html.calme.a-curseur, html.calme.a-curseur a, html.calme.a-curseur button { curs
 
 /* Cibles tactiles confortables */
 @media (hover: none), (pointer: coarse) {
+  .select-mini { font-size: 16px; }
+  .bouton-icone, .bouton--petit { height: 44px; min-width: 44px; }
+  .tiroir__qte button { width: 44px; height: 44px; }
+  .haut-de-page, .fil a { padding-block: 10px; display: inline-block; }
   .grain { display: none; }
   .ajouter { height: 44px; padding: 0 16px 0 14px; }
-  .puce { height: 42px; }
-  .select-mini, .vue-bascule button { height: 42px; }
+  .puce { height: 44px; }
+  .select-mini, .vue-bascule button { height: 44px; }
   .copier { padding: 8px 12px; margin-left: 4px; }
   .tiroir__qte button { width: 40px; height: 40px; }
   .pied ul { gap: 2px; }

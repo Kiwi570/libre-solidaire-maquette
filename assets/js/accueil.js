@@ -105,7 +105,7 @@
     var nouv = livres.filter(function (l) { return l.nouveau; });
     if (piste) {
       piste.innerHTML = nouv.map(function (l) {
-        return '<article class="carte-nouv"><a class="carte-nouv__livre" href="' + L.lienLivre(l) + '" data-curseur="livre" data-inclinable aria-label="' + L.esc(l.titre) + '">' + L.livre3d(l, { eager: nouv.indexOf(l) < 4 }) + '</a>' +
+        return '<article class="carte-nouv"><a class="carte-nouv__livre" href="' + L.lienLivre(l) + '" data-curseur="livre" data-inclinable tabindex="-1" aria-hidden="true">' + L.livre3d(l, { eager: nouv.indexOf(l) < 4 }) + '</a>' +
           '<div class="carte-nouv__info">' + L.badgeLabel(l) + '<a class="carte-nouv__titre" href="' + L.lienLivre(l) + '">' + L.esc(l.titre) + '</a>' +
           (L.auteurs(l) ? '<span class="carte-nouv__auteur">' + L.esc(L.auteurs(l)) + '</span>' : '') +
           '<div class="carte-nouv__bas"><span class="prix">' + L.prix(l.prix) + '</span><button class="ajouter" type="button" data-ajouter="' + l.ref + '" aria-label="Ajouter ' + L.esc(l.titre) + ' au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Ajouter</button></div></div></article>';

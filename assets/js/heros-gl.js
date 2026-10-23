@@ -102,11 +102,12 @@ function demarrer() {
   }
   window.addEventListener('pointermove', bouge, { passive: true });
 
-  let visible = true;
-  new IntersectionObserver((e) => { visible = e[0].isIntersecting; if (visible) requestAnimationFrame(boucle); }, { threshold: 0 }).observe(fond);
+  // une seule boucle à la fois, suspendue hors écran
+  let visible = true; let enCours = false;
+  new IntersectionObserver((e) => { visible = e[0].isIntersecting; if (visible && !enCours) { enCours = true; requestAnimationFrame(boucle); } }, { threshold: 0 }).observe(fond);
 
   function boucle(t) {
-    if (!visible) return;
+    if (!visible) { enCours = false; return; }
     requestAnimationFrame(boucle);
     if (!pret) return;
     program.uniforms.uTemps.value = t * 0.001;
@@ -118,5 +119,4 @@ function demarrer() {
     flowmap.update();
     renderer.render({ scene: mesh });
   }
-  requestAnimationFrame(boucle);
 }
