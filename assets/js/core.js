@@ -208,6 +208,11 @@
   /* ---------- En-tête ---------- */
   function initEntete() {
     var e = document.querySelector('.entete'); if (!e) return;
+    /* hauteur réelle de l'en-tête (encoche comprise), pour les sections collantes */
+    function mesurerEntete() { html.style.setProperty('--entete-h', (e.offsetTop + e.offsetHeight) + 'px'); }
+    mesurerEntete();
+    if (window.ResizeObserver) new ResizeObserver(mesurerEntete).observe(e);
+    window.addEventListener('resize', mesurerEntete);
     var dernier = 0;
     function maj() {
       var y = window.scrollY || 0;
@@ -229,11 +234,11 @@
       menu.querySelectorAll('nav a').forEach(function (a) { a.addEventListener('click', function () { menu.hidden = true; mb.setAttribute('aria-expanded', 'false'); piegeActif = null; if (lenis) lenis.start(); document.documentElement.style.overflow = ''; }); });
       document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !menu.hidden) fermerMenu(); });
     }
-    var cb = document.querySelector('.calme-bouton');
-    if (cb) {
+    /* le bouton Mode calme existe dans l'en-tête et, sur petit téléphone, dans le menu plein écran */
+    document.querySelectorAll('.calme-bouton').forEach(function (cb) {
       cb.setAttribute('aria-pressed', calme ? 'true' : 'false');
       cb.addEventListener('click', function () { ecrire('ls-calme', calme ? '0' : '1'); ecrireS('ls-ouverture-vue', '1'); window.location.reload(); });
-    }
+    });
     var esp = document.querySelector('.entete .marque__esperluette');
     var marque = document.querySelector('.entete .marque');
     if (esp && marque && hasGsap && !calme) {
@@ -476,9 +481,10 @@
       var lettres = [];
       Array.prototype.slice.call(marque.childNodes).forEach(function (n) {
         var cible = n.nodeType === 1 ? n : null, txt = n.textContent, frag = document.createDocumentFragment();
-        if (cible) { cible.textContent = ''; }
-        txt.split('').forEach(function (ch) { var sp = document.createElement('span'); sp.style.display = 'inline-block'; sp.textContent = ch; (cible || frag).appendChild(sp); lettres.push(sp); });
-        if (!cible) marque.replaceChild(frag, n);
+        /* chaque mot reste un seul élément flex : l'écart du pied ne s'applique qu'entre les mots */
+        if (cible) { cible.textContent = ''; } else { cible = document.createElement('span'); cible.className = 'pied__mot'; frag.appendChild(cible); }
+        txt.split('').forEach(function (ch) { var sp = document.createElement('span'); sp.style.display = 'inline-block'; sp.textContent = ch; cible.appendChild(sp); lettres.push(sp); });
+        if (n.nodeType !== 1) marque.replaceChild(frag, n);
       });
       gsap.from(lettres, { yPercent: 70, opacity: 0, rotate: 6, duration: 1.2, stagger: 0.035, ease: 'expo.out', scrollTrigger: { trigger: marque, start: 'top 92%', once: true } });
     }

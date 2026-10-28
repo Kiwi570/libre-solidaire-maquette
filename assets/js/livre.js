@@ -67,7 +67,7 @@
     if (l.note && l.nbAvis) $('[data-avis]').innerHTML = '<span class="notes-etoiles">' + '★★★★★'.slice(0, Math.round(l.note)) + '</span> <span class="mono" style="color:var(--os-3)">' + String(l.note).replace('.', ',') + ' sur 5 · ' + l.nbAvis + ' avis client' + (l.nbAvis > 1 ? 's' : '') + ' sur le site actuel</span>';
 
     $('[data-resume]').innerHTML = l.resume
-      ? '<p>' + L.esc(l.resume) + '</p><p class="mono" style="color:var(--os-3);font-size:11px">Résumé reformulé d’après la fiche actuelle, à remplacer par le texte de quatrième de couverture.</p>'
+      ? '<p>' + L.esc(l.resume) + '</p><p class="mono" style="color:var(--os-3);font-size:12px">Résumé reformulé d’après la fiche actuelle, à remplacer par le texte de quatrième de couverture.</p>'
       : '<p>Présentation du livre ' + AC + '</p>';
     var bio = $('[data-bio]');
     if (l.bio) bio.innerHTML = '<h2>' + (l.auteurs && l.auteurs.length ? L.esc(l.auteurs.join(', ')) : 'L’auteur') + '</h2><div class="fiche__texte"><p>' + L.esc(l.bio) + '</p></div>';
@@ -85,7 +85,7 @@
     var ex = $('[data-extrait]');
     function interieur(n, debut) {
       var lignes = ''; for (var i = 0; i < 11; i++) lignes += '<i style="width:' + (i === 10 ? 45 : 82 + ((i * 37 + n * 11) % 18)) + '%"></i>';
-      return (debut ? '<strong style="font-weight:400;font-size:1.3em">' + L.esc(l.titre) + '</strong>' : '<span class="mono" style="font-size:.8em;color:rgba(43,35,27,.55)">Extrait à fournir</span>') +
+      return (debut ? '<strong style="font-weight:400;font-size:1.3em">' + L.esc(l.titre) + '</strong>' : '<span class="mono" style="font-size:max(12px, .8em);color:rgba(43,35,27,.55)">Extrait à fournir</span>') +
         '<div class="extrait__lignes">' + lignes + '</div><span class="extrait__num">' + n + '</span>';
     }
     ex.innerHTML = '<div class="extrait__page">' + interieur(1, true) + '</div><div class="extrait__page">' + interieur(4) + '</div>' +
